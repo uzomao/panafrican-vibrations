@@ -1,0 +1,21 @@
+.home {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.home-image, .home-map {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.home-image {
+    background-color: #000;
+}
+
+.home-image img {
+    max-width: 100%;
+}
+
