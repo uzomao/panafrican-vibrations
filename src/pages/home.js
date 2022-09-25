@@ -2,6 +2,8 @@ import React from 'react'
 import '../styles/home.css'
 import awardees from '../images/awardees.jpg'
 
+import MapChart from '../components/map-chart'
+
 const Home = () => {
   return (
     <div className='home'>
@@ -9,7 +11,7 @@ const Home = () => {
             <img src={awardees} alt="8 people sitting on a long sofa" />
         </div>
         <div className='home-map'>
-            <h1>Map</h1>
+            <MapChart />
         </div>
     </div>
   )
