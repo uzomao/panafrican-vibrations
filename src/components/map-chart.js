@@ -5,23 +5,23 @@ import {
   Geography,
   Marker
 } from "react-simple-maps";
-import { awardeeNames as names } from "../awardee-names";
+import { awardees } from "../awardees";
 
-const { abdoul, alice, athandiwe, delasi, keren, luamba, souleymane, uzoma, valu } = names
+const { abdoul, alice, athandiwe, delasi, keren, luamba, souleymane, uzoma, valu } = awardees
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/africa.json";
 
 const markers = [
-  { awardee: abdoul, name: "Kigali", coordinates: [30.104429, -1.970579] },
-  { awardee: alice, name: "Nkongsamba", coordinates: [9.936900, 4.955260] },
-  { awardee: athandiwe, name: "Johannesburg", coordinates: [28.047304, -26.204103] },
-  { awardee: delasi, name: "Accra", coordinates: [-0.186964, 5.603717] },
-  { awardee: keren, name: "Abidjan", coordinates: [-4.008256, 5.359952] },
-  { awardee: luamba, name: "Luanda", coordinates: [13.289437, -8.839988] },
-  { awardee: souleymane, name: "Ouagadougou", coordinates: [-1.519920, 12.371530] },
-  { awardee: uzoma, name: "Abuja", coordinates: [7.398574, 9.076479] },
-  { awardee: valu, name: "Lagos", coordinates: [3.379206, 6.524379] },
+  { awardee: abdoul.name, name: "Kigali", coordinates: [30.104429, -1.970579] },
+  { awardee: alice.name, name: "Nkongsamba", coordinates: [9.936900, 4.955260] },
+  { awardee: athandiwe.name, name: "Johannesburg", coordinates: [28.047304, -26.204103] },
+  { awardee: delasi.name, name: "Accra", coordinates: [-0.186964, 5.603717] },
+  { awardee: keren.name, name: "Abidjan", coordinates: [-4.008256, 5.359952] },
+  { awardee: luamba.name, name: "Luanda", coordinates: [13.289437, -8.839988] },
+  { awardee: souleymane.name, name: "Ouagadougou", coordinates: [-1.519920, 12.371530] },
+  { awardee: uzoma.name, name: "Abuja", coordinates: [7.398574, 9.076479] },
+  { awardee: valu.name, name: "Lagos", coordinates: [3.379206, 6.524379] },
 ];
 
 const MapChart = () => {
