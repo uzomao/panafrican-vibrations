@@ -1,32 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker
 } from "react-simple-maps";
+import { awardeeNames as names } from "../awardee-names";
+
+const { abdoul, alice, athandiwe, delasi, keren, luamba, souleymane, uzoma, valu } = names
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/africa.json";
 
 const markers = [
-  { awardee: 'Abdoul', name: "Kigali", coordinates: [30.104429, -1.970579] },
-  { awardee: 'Alice', name: "Nkongsamba", coordinates: [9.936900, 4.955260] },
-  { awardee: 'Athandiwe', name: "Johannesburg", coordinates: [28.047304, -26.204103] },
-  { awardee: 'Delasi', name: "Accra", coordinates: [-0.186964, 5.603717] },
-  { awardee: 'Keren', name: "Abidjan", coordinates: [-4.008256, 5.359952] },
-  { awardee: 'Luamba', name: "Luanda", coordinates: [13.289437, -8.839988] },
-  { awardee: 'Souleymane', name: "Ouagadougou", coordinates: [-1.519920, 12.371530] },
-  { awardee: 'Uzoma', name: "Abuja", coordinates: [7.398574, 9.076479] },
-  { awardee: 'Valu', name: "Lagos", coordinates: [3.379206, 6.524379] },
+  { awardee: abdoul, name: "Kigali", coordinates: [30.104429, -1.970579] },
+  { awardee: alice, name: "Nkongsamba", coordinates: [9.936900, 4.955260] },
+  { awardee: athandiwe, name: "Johannesburg", coordinates: [28.047304, -26.204103] },
+  { awardee: delasi, name: "Accra", coordinates: [-0.186964, 5.603717] },
+  { awardee: keren, name: "Abidjan", coordinates: [-4.008256, 5.359952] },
+  { awardee: luamba, name: "Luanda", coordinates: [13.289437, -8.839988] },
+  { awardee: souleymane, name: "Ouagadougou", coordinates: [-1.519920, 12.371530] },
+  { awardee: uzoma, name: "Abuja", coordinates: [7.398574, 9.076479] },
+  { awardee: valu, name: "Lagos", coordinates: [3.379206, 6.524379] },
 ];
 
 const MapChart = () => {
+
+  useEffect(() => {
+    // Modify map viewbox dynamically
+    document.getElementsByClassName('rsm-svg')[0].setAttribute("viewBox", "0 0 1000 1000");
+
+  }, [])
+  
+
   return (
     <ComposableMap
       projection="geoAzimuthalEqualArea"
       projectionConfig={{
-        rotate: [45, 8, 5],
+        rotate: [45, 2.5, 7],
         center: [50, 22.5],
         scale: 675
       }}
@@ -43,9 +54,9 @@ const MapChart = () => {
           ))
         }
       </Geographies>
-      {markers.map(({ name, coordinates }) => (
+      {markers.map(({ name, awardee, coordinates }) => (
         <Marker key={name} coordinates={coordinates}>
-          <circle r={10} fill="#fff" stroke="#fff" strokeWidth={2} />
+          <circle r={10} fill="#fff" stroke="#fff" strokeWidth={2} className="marker" id={`marker-${awardee}`} />
           {/* <text
             textAnchor="middle"
             style={{ fontFamily: "system-ui", fill: "#fff" }}

@@ -12,16 +12,24 @@
 }
 
 .home-image {
-    background-color: #000;
+    border-right: 1px solid #ccd5d0;
 }
 
 .home-image img {
     max-width: 100%;
 }
 
+.marker {
+    display: none;
+}
+
+#marker-alice {
+    display: block;
+}
+
 /* CSS Gradient */
 
-.home-map {
+.home {
     background: linear-gradient(216deg, #e84393, #4834d4, #fbc531, #f7f4ec);
     background-size: 800% 800%;
 
