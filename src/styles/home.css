@@ -17,8 +17,9 @@
 
 .home-image-image {
     display: flex;
+    flex-direction: column;
     height: 50%;
-    align-items: center;
+    justify-content: center;
 }
 
 .home-description-modal-active {

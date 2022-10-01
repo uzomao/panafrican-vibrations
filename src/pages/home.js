@@ -31,15 +31,24 @@ const Home = () => {
 
   const [content, setContent] = useState("")
 
+  const [vibeCount, setVibeCount] = useState(0)
+
   useEffect(() => {
     imageMapResize();
   }, [])
+
+  const alreadySelectedNames = []
 
   const awardeeSelected = (awardeeName) => {
     document.getElementById(`marker-${awardeeName}`).style.display = 'block';
     document.getElementById(`marker-text-${awardeeName}`).style.display = 'block';
     
     setCurrentAwardee(awardeesNameMap[awardeeName])
+
+    if(!alreadySelectedNames.includes(awardeeName)){
+      setVibeCount(vibeCount+1)
+      alreadySelectedNames.push(awardeeName)
+    }
 
     // add a new class to the home image section to account for the description modal
     const descriptionModalClassName = 'home-description-modal-active'
@@ -52,7 +61,7 @@ const Home = () => {
     <div className='home'>
         <div className='home-image'>
             <div className='home-image-image'>
-
+              { !vibeCount && <p style={{color: '#fff', textAlign: 'center'}}>* click on an artist to bring out their vibe *</p>}
               <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
             </div>
             {
@@ -71,6 +80,9 @@ const Home = () => {
             }
         </div>
         <div className='home-map'>
+            <p style={{color: '#fff', position: 'absolute', top: '0', right: '15px', fontSize: '18px'}}>
+              Vibe count: {`${vibeCount}/9`}
+            </p>
             <MapChart setTooltipContent={setContent} />
             <ReactTooltip place="bottom">{content}</ReactTooltip>
         </div>
