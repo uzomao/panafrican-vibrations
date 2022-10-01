@@ -1,3 +1,7 @@
+:root {
+    --green: #00f001;
+}
+
 .home {
     display: flex;
     height: 100vh;
@@ -36,6 +40,16 @@
     height: 50%;
     width: calc(100% - 2rem);
     padding: 1rem;
+}
+
+.home-description-modal button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 36px;
+    cursor: pointer;
+    color: var(--green);
+    float: right;
 }
 
 .marker, .marker-text {

@@ -28,6 +28,21 @@ const Home = () => {
   }
 
   const [currentAwardee, setCurrentAwardee] = useState(null)
+
+  const _setCurrentAwardee = (awardeeName) => {
+
+    setCurrentAwardee(awardeesNameMap[awardeeName])
+
+    // add a new class to the home image section to account for the description modal
+    const descriptionModalClassName = 'home-description-modal-active'
+    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
+      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
+    } else {
+      // remove the description modal from the page
+      document.getElementsByClassName('home-image')[0].className += `home-image`
+    }
+  }
+
   const [content, setContent] = useState("")
 
   useEffect(() => {
@@ -38,13 +53,7 @@ const Home = () => {
     document.getElementById(`marker-${awardeeName}`).style.display = 'block';
     document.getElementById(`marker-text-${awardeeName}`).style.display = 'block';
     
-    setCurrentAwardee(awardeesNameMap[awardeeName])
-
-    // add a new class to the home image section to account for the description modal
-    const descriptionModalClassName = 'home-description-modal-active'
-    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
-      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
-    }
+    _setCurrentAwardee(awardeeName)
   }
 
   return (
@@ -56,9 +65,12 @@ const Home = () => {
             {
               currentAwardee &&
                 <div className="home-description-modal">
-                  <h1>{currentAwardee.name}</h1>
-                  <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}
-                  <h3>{currentAwardee.city}</h3>
+                  <button onClick={ () => _setCurrentAwardee(null) }>X</button>
+                  <>
+                    <h1>{currentAwardee.name}</h1>
+                    <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}
+                    <h3>{currentAwardee.city}</h3>
+                  </>
                 </div>
             }
         </div>
