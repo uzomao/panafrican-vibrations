@@ -56,11 +56,13 @@ const MapChart = ({ setTooltipContent }) => {
       </Geographies>
       {markers.map(({ name, awardee, coordinates }) => (
         <Marker key={name} coordinates={coordinates}>
-          <rect x="-10" y="-20" width="30" height="30" transform="rotate(45)" fill="#00f001" stroke="" className="marker" id={`marker-${awardee}`} />
+          <rect x="-10" y="-20" width="30" height="30" transform="rotate(45)" fill="#00f001" className="marker" id={`marker-${awardee}`}
+            style={{boxShadow: '-5px 0 5px #00f001'}} 
+          />
           <text
             textAnchor="middle"
             x="7"
-            y="-30"
+            y="-20"
             style={{ fontFamily: "system-ui", fill: "#fff" }}
             className="marker-text"
             id={`marker-text-${awardee}`}

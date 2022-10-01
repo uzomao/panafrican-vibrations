@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/home.css'
-import awardeesImg from '../images/awardees-small.jpg'
+import awardeesImg from '../images/awardees.jpg'
 
 import MapChart from '../components/map-chart'
 import imageMapResize from 'image-map-resizer'
@@ -29,20 +29,6 @@ const Home = () => {
 
   const [currentAwardee, setCurrentAwardee] = useState(null)
 
-  const _setCurrentAwardee = (awardeeName) => {
-
-    setCurrentAwardee(awardeesNameMap[awardeeName])
-
-    // add a new class to the home image section to account for the description modal
-    const descriptionModalClassName = 'home-description-modal-active'
-    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
-      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
-    } else {
-      // remove the description modal from the page
-      document.getElementsByClassName('home-image')[0].className += `home-image`
-    }
-  }
-
   const [content, setContent] = useState("")
 
   useEffect(() => {
@@ -53,19 +39,29 @@ const Home = () => {
     document.getElementById(`marker-${awardeeName}`).style.display = 'block';
     document.getElementById(`marker-text-${awardeeName}`).style.display = 'block';
     
-    _setCurrentAwardee(awardeeName)
+    setCurrentAwardee(awardeesNameMap[awardeeName])
+
+    // add a new class to the home image section to account for the description modal
+    const descriptionModalClassName = 'home-description-modal-active'
+    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
+      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
+    }
   }
 
   return (
     <div className='home'>
         <div className='home-image'>
             <div className='home-image-image'>
+
               <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
             </div>
             {
               currentAwardee &&
                 <div className="home-description-modal">
-                  <button onClick={ () => _setCurrentAwardee(null) }>X</button>
+                  <button onClick={ () => {
+                    setCurrentAwardee(null)
+                    document.getElementsByClassName('home-image')[0].className = `home-image`
+                  } }>X</button>
                   <>
                     <h1>{currentAwardee.name}</h1>
                     <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}

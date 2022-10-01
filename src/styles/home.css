@@ -56,6 +56,10 @@
     display: none;
 }
 
+#image-map area {
+    cursor: url('../images/cursor.png') 10 20, auto;
+}
+
 /* CSS Gradient */
 
 .home {
