@@ -37,7 +37,7 @@ const Home = () => {
     imageMapResize();
   }, [])
 
-  const alreadySelectedNames = []
+  const [alreadySelectedNames, setAlreadySelectedNames] = useState([])
 
   const awardeeSelected = (awardeeName) => {
     document.getElementById(`marker-${awardeeName}`).style.display = 'block';
@@ -45,9 +45,9 @@ const Home = () => {
     
     setCurrentAwardee(awardeesNameMap[awardeeName])
 
-    if(!alreadySelectedNames.includes(awardeeName)){
+    if(alreadySelectedNames.includes(awardeeName) === false){
       setVibeCount(vibeCount+1)
-      alreadySelectedNames.push(awardeeName)
+      setAlreadySelectedNames([...alreadySelectedNames, awardeeName])
     }
 
     // add a new class to the home image section to account for the description modal
