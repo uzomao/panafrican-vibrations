@@ -24,7 +24,7 @@ const markers = [
   { awardee: valu.name, name: "Lagos", coordinates: [3.379206, 6.524379] },
 ];
 
-const MapChart = () => {
+const MapChart = ({ setTooltipContent }) => {
 
   useEffect(() => {
     // Modify map viewbox dynamically
@@ -56,13 +56,17 @@ const MapChart = () => {
       </Geographies>
       {markers.map(({ name, awardee, coordinates }) => (
         <Marker key={name} coordinates={coordinates}>
-          <circle r={10} fill="#fff" stroke="#fff" strokeWidth={2} className="marker" id={`marker-${awardee}`} />
-          {/* <text
+          <rect x="-10" y="-20" width="30" height="30" transform="rotate(45)" fill="#00f001" stroke="" className="marker" id={`marker-${awardee}`} />
+          <text
             textAnchor="middle"
+            x="7"
+            y="-30"
             style={{ fontFamily: "system-ui", fill: "#fff" }}
+            className="marker-text"
+            id={`marker-text-${awardee}`}
           >
-            {name}
-          </text> */}
+            {awardee}
+          </text>
         </Marker>
       ))}
     </ComposableMap>

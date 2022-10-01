@@ -7,10 +7,19 @@
 .home-image, .home-map {
     flex-basis: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     height: 100%;
+}
+
+.home-image-image {
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+
+.home-description-modal-active {
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .home-image {
@@ -29,12 +38,8 @@
     padding: 1rem;
 }
 
-.marker {
+.marker, .marker-text {
     display: none;
-}
-
-#marker-alice {
-    display: block;
 }
 
 /* CSS Gradient */

@@ -5,6 +5,7 @@ import awardeesImg from '../images/awardees-small.jpg'
 import MapChart from '../components/map-chart'
 import imageMapResize from 'image-map-resizer'
 import AwardeesMap from '../components/awardees-map'
+import ReactTooltip from 'react-tooltip'
 
 import { awardees } from '../awardees'
 
@@ -27,6 +28,7 @@ const Home = () => {
   }
 
   const [currentAwardee, setCurrentAwardee] = useState(null)
+  const [content, setContent] = useState("")
 
   useEffect(() => {
     imageMapResize();
@@ -34,13 +36,23 @@ const Home = () => {
 
   const awardeeSelected = (awardeeName) => {
     document.getElementById(`marker-${awardeeName}`).style.display = 'block';
+    document.getElementById(`marker-text-${awardeeName}`).style.display = 'block';
+    
     setCurrentAwardee(awardeesNameMap[awardeeName])
+
+    // add a new class to the home image section to account for the description modal
+    const descriptionModalClassName = 'home-description-modal-active'
+    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
+      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
+    }
   }
 
   return (
     <div className='home'>
         <div className='home-image'>
-            <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
+            <div className='home-image-image'>
+              <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
+            </div>
             {
               currentAwardee &&
                 <div className="home-description-modal">
@@ -51,7 +63,8 @@ const Home = () => {
             }
         </div>
         <div className='home-map'>
-            <MapChart />
+            <MapChart setTooltipContent={setContent} />
+            <ReactTooltip place="bottom">{content}</ReactTooltip>
         </div>
         {/* Image map for awardees image */}
         <AwardeesMap awardeeSelected={awardeeSelected} />
