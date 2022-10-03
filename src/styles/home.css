@@ -1,5 +1,7 @@
 :root {
     --green: #00f001;
+    --light-green: #80f880;
+    --dark-green: #001800;
 }
 
 .home {
@@ -64,6 +66,17 @@
     letter-spacing: 2px;
 }
 
+.home-description-modal .awardee-details h3 {
+    color: #333;
+}
+
+.home-description-modal .awardee-details a {
+    color: var(--green);
+    display: inline-block;
+    width: 100%;
+    margin: 2px 0;
+}
+
 .home-description-modal .awardee-details p {
     line-height: 1.65em;
     margin: 10px 0;
@@ -73,6 +86,7 @@
 
 .marker, .marker-text {
     display: none;
+    cursor: pointer;
 }
 
 #image-map area {

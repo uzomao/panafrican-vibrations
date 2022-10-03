@@ -5,7 +5,6 @@ import awardeesImg from '../images/awardees.jpg'
 import MapChart from '../components/map-chart'
 import imageMapResize from 'image-map-resizer'
 import AwardeesMap from '../components/awardees-map'
-import ReactTooltip from 'react-tooltip'
 
 import { awardees } from '../awardees'
 
@@ -28,8 +27,6 @@ const Home = () => {
   }
 
   const [currentAwardee, setCurrentAwardee] = useState(null)
-
-  const [content, setContent] = useState("")
 
   const [vibeCount, setVibeCount] = useState(0)
 
@@ -73,9 +70,12 @@ const Home = () => {
                   } }>X</button>
                   <div className="awardee-details">
                     <h1 className="awardee-name">{currentAwardee.name}</h1>
-                    <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}
-                    <h3>{currentAwardee.city}</h3>
+                    <h3><span role="img" aria-label='artist palette'>🎨</span> {currentAwardee.practice}</h3> {/* Research everyone's practice! */}
+                    <h3><span role="img" aria-label='globe showing europe-africa'>🌍</span> {currentAwardee.city}</h3>
                     <p>{currentAwardee.text}</p>
+                    <a href={currentAwardee.pcfLink} target="_blank" rel="noopener noreferrer">Link to Prince Claus profile</a>
+                    {currentAwardee.portfolio && <a href={currentAwardee.portfolio} target="_blank" rel="noopener noreferrer">Link to artist's portfolio</a>}
+                    {currentAwardee.instagram && <a href={currentAwardee.instagram} target="_blank" rel="noopener noreferrer">Link to artist's Insta</a>}
                   </div>
                 </div>
             }
@@ -84,8 +84,7 @@ const Home = () => {
             <p style={{color: '#fff', position: 'absolute', top: '0', right: '15px', fontSize: '18px'}}>
               Vibe count: {`${vibeCount}/9`}
             </p>
-            <MapChart setTooltipContent={setContent} />
-            <ReactTooltip place="bottom">{content}</ReactTooltip>
+            <MapChart awardeeSelected={awardeeSelected} />
         </div>
         {/* Image map for awardees image */}
         <AwardeesMap awardeeSelected={awardeeSelected} />

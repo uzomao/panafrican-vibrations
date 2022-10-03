@@ -24,7 +24,7 @@ const markers = [
   { awardee: valu.name, name: "Lagos", coordinates: [3.379206, 6.524379] },
 ];
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = ({ awardeeSelected }) => {
 
   useEffect(() => {
     // Modify map viewbox dynamically
@@ -57,7 +57,10 @@ const MapChart = ({ setTooltipContent }) => {
       {markers.map(({ name, awardee, coordinates }) => (
         <Marker key={name} coordinates={coordinates}>
           <rect x="-10" y="-20" width="30" height="30" transform="rotate(45)" fill="#00f001" className="marker" id={`marker-${awardee}`}
-            style={{boxShadow: '-5px 0 5px #00f001'}} 
+            style={{boxShadow: '-5px 0 5px #00f001'}}
+            onClick={() => awardeeSelected(awardee)}
+            onMouseEnter={() => {document.getElementById(`marker-${awardee}`).style.fill="#ef7bb3"}}
+            onMouseLeave={() => {document.getElementById(`marker-${awardee}`).style.fill="#00f001"}}
           />
           <text
             textAnchor="middle"
