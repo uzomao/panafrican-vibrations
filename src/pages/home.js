@@ -61,7 +61,7 @@ const Home = () => {
     <div className='home'>
         <div className='home-image'>
             <div className='home-image-image'>
-              { !vibeCount && <p style={{color: '#fff', textAlign: 'center'}}>* click on an artist to bring out their vibe *</p>}
+              { !vibeCount && <p style={{color: '#fff', textAlign: 'center'}}>* click on an artist to unlock their vibe *</p>}
               <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
             </div>
             {
@@ -71,11 +71,11 @@ const Home = () => {
                     setCurrentAwardee(null)
                     document.getElementsByClassName('home-image')[0].className = `home-image`
                   } }>X</button>
-                  <>
-                    <h1>{currentAwardee.name}</h1>
+                  <div className="awardee-details">
+                    <h1 className="awardee-name">{currentAwardee.name}</h1>
                     <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}
                     <h3>{currentAwardee.city}</h3>
-                  </>
+                  </div>
                 </div>
             }
         </div>

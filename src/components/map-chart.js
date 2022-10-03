@@ -63,7 +63,7 @@ const MapChart = ({ setTooltipContent }) => {
             textAnchor="middle"
             x="7"
             y="-20"
-            style={{ fontFamily: "system-ui", fill: "#fff" }}
+            style={{ fontFamily: "Space Mono, Courier, monospace", fill: "#fff" }}
             className="marker-text"
             id={`marker-text-${awardee}`}
           >

@@ -53,6 +53,17 @@
     float: right;
 }
 
+.home-description-modal .awardee-details > * {
+    margin: 0;
+}
+
+.home-description-modal .awardee-details h1 {
+    color: var(--green);
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin: 5px 0;
+}
+
 .marker, .marker-text {
     display: none;
 }
