@@ -75,6 +75,7 @@ const Home = () => {
                     <h1 className="awardee-name">{currentAwardee.name}</h1>
                     <h3>{currentAwardee.practice}</h3> {/* Research everyone's practice! */}
                     <h3>{currentAwardee.city}</h3>
+                    <p>{currentAwardee.text}</p>
                   </div>
                 </div>
             }

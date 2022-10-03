@@ -41,6 +41,7 @@
     height: 50%;
     width: calc(100% - 2rem);
     padding: 1rem;
+    overflow: scroll;
 }
 
 .home-description-modal button {
@@ -54,14 +55,20 @@
 }
 
 .home-description-modal .awardee-details > * {
-    margin: 0;
+    margin: 5px 0;
 }
 
 .home-description-modal .awardee-details h1 {
     color: var(--green);
     font-size: 48px;
     letter-spacing: 2px;
-    margin: 5px 0;
+}
+
+.home-description-modal .awardee-details p {
+    line-height: 1.65em;
+    margin: 10px 0;
+    text-align: justify;
+    width: 95%;
 }
 
 .marker, .marker-text {
