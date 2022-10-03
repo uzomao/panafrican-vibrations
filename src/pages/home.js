@@ -81,7 +81,7 @@ const Home = () => {
             }
         </div>
         <div className='home-map'>
-            <p style={{color: '#fff', position: 'absolute', top: '0', right: '15px', fontSize: '18px'}}>
+            <p className="vibe-count">
               Vibe count: {`${vibeCount}/9`}
             </p>
             <MapChart awardeeSelected={awardeeSelected} />

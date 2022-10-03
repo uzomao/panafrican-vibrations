@@ -6,7 +6,7 @@
 
 .home {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 45px); /* 45px is header height */
     align-items: center;
 }
 
@@ -91,6 +91,20 @@
 
 #image-map area {
     cursor: url('../images/cursor.png') 10 20, auto;
+}
+
+.home-map {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-map .vibe-count {
+    color: #fff;
+    font-size: 18px;
+    width: 100%;
+    text-align: right;
+    margin: 0;
+    margin-right: 20px;
 }
 
 /* CSS Gradient */
