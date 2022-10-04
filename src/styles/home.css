@@ -143,3 +143,35 @@
     100%{background-position:15% 0%}
 }
 
+@media only screen and (max-width: 768px) {
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-image-image, .home-description-modal {
+        height: 100%
+    }
+
+    .home-description-modal {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.85);
+        z-index: 1;
+    }
+
+    .home-image {
+        border-right: unset;
+        border-bottom: 1px solid #ccd5d0;
+    }
+
+    .home-map .vibe-count {
+        position: relative;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 2.5rem;
+        background: none;
+        box-shadow: none;
+    }
+}

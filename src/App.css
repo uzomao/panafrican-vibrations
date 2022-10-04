@@ -39,7 +39,7 @@ body {
     justify-content: flex-end;
 }
 
-.app-header-right p, a {
+.app-header-right p, .app-header-right a {
     color: #fff;
     cursor: pointer;
     text-decoration: underline;
@@ -53,4 +53,34 @@ body {
 
 .app-header p {
     margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .app-header .header-item:first-child {
+        display: none
+    }
+
+    .app-header {
+        flex-direction: column;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .app-header .header-item{
+        width: 100%;
+    }
+
+    .app-header h3 {
+        font-size: unset;
+        
+    }
+
+    .app-header-right {
+        justify-content: center;
+    }
+
+    .app-header-right p, .app-header-right a {
+        font-size: 16px;
+    }
 }
