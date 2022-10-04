@@ -5,10 +5,11 @@ import awardeesImg from '../images/awardees.jpg'
 import MapChart from '../components/map-chart'
 import imageMapResize from 'image-map-resizer'
 import AwardeesMap from '../components/awardees-map'
+import About from '../components/about'
 
 import { awardees } from '../awardees'
 
-const Home = () => {
+const Home = ({ showAboutModal }) => {
 
   const { abdoul, alice, athandiwe, delasi, keren, luamba, souleymane, uzoma, valu } = awardees
 
@@ -56,39 +57,45 @@ const Home = () => {
 
   return (
     <div className='home'>
-        <div className='home-image'>
-            <div className='home-image-image'>
-              { !vibeCount && <p style={{color: '#fff', textAlign: 'center'}}>* click on an artist to unlock their vibe *</p>}
-              <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
-            </div>
-            {
-              currentAwardee &&
-                <div className="home-description-modal">
-                  <button onClick={ () => {
-                    setCurrentAwardee(null)
-                    document.getElementsByClassName('home-image')[0].className = `home-image`
-                  } }>X</button>
-                  <div className="awardee-details">
-                    <h1 className="awardee-name">{currentAwardee.name}</h1>
-                    <h3><span role="img" aria-label='artist palette'>🎨</span> {currentAwardee.practice}</h3> {/* Research everyone's practice! */}
-                    <h3><span role="img" aria-label='globe showing europe-africa'>🌍</span> {currentAwardee.city}</h3>
-                    <p>{currentAwardee.text}</p>
-                    <a href={currentAwardee.pcfLink} target="_blank" rel="noopener noreferrer">Link to Prince Claus profile</a>
-                    {currentAwardee.portfolio && <a href={currentAwardee.portfolio} target="_blank" rel="noopener noreferrer">Link to artist's portfolio</a>}
-                    {currentAwardee.instagram && <a href={currentAwardee.instagram} target="_blank" rel="noopener noreferrer">Link to artist's Insta</a>}
-                  </div>
+        { !showAboutModal ?
+          <>
+            <div className='home-image'>
+                <div className='home-image-image'>
+                  { !vibeCount && <p style={{color: '#fff', textAlign: 'center'}}>* click on an artist to unlock their vibe *</p>}
+                  <img src={awardeesImg} alt="8 people sitting on a long sofa" useMap="#image-map" />
                 </div>
-            }
-        </div>
-        <div className='home-map'>
-            <p className="vibe-count">
-              Vibe count: {`${vibeCount}/9`}
-            </p>
-            <MapChart awardeeSelected={awardeeSelected} />
-        </div>
-        {/* Image map for awardees image */}
-        <AwardeesMap awardeeSelected={awardeeSelected} />
-    </div>
+                {
+                  currentAwardee &&
+                    <div className="home-description-modal">
+                      <button onClick={ () => {
+                        setCurrentAwardee(null)
+                        document.getElementsByClassName('home-image')[0].className = `home-image`
+                      } }>X</button>
+                      <div className="awardee-details">
+                        <h1 className="awardee-name">{currentAwardee.name}</h1>
+                        <h3><span role="img" aria-label='artist palette'>🎨</span> {currentAwardee.practice}</h3> {/* Research everyone's practice! */}
+                        <h3><span role="img" aria-label='globe showing europe-africa'>🌍</span> {currentAwardee.city}</h3>
+                        <p>{currentAwardee.text}</p>
+                        <a href={currentAwardee.pcfLink} target="_blank" rel="noopener noreferrer">Link to Prince Claus profile</a>
+                        {currentAwardee.portfolio && <a href={currentAwardee.portfolio} target="_blank" rel="noopener noreferrer">Link to artist's portfolio</a>}
+                        {currentAwardee.instagram && <a href={currentAwardee.instagram} target="_blank" rel="noopener noreferrer">Link to artist's Insta</a>}
+                      </div>
+                    </div>
+                }
+            </div>
+            <div className='home-map'>
+                <p className="vibe-count">
+                  Vibe count: {`${vibeCount}/9`}
+                </p>
+                <MapChart awardeeSelected={awardeeSelected} />
+            </div>
+            {/* Image map for awardees image */}
+            <AwardeesMap awardeeSelected={awardeeSelected} />
+          </>
+        :
+        <About />
+      }
+      </div>
   )
 }
 
