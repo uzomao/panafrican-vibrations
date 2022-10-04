@@ -110,6 +110,7 @@
     background: linear-gradient(144deg, #e84393, #4834d4);
     padding: 5px 7.5px;
     border-radius: 10px;
+    box-shadow: 2.5px 2px 4px rgba(0,0,0,0.25);
     -webkit-animation: Vibrations 20s ease infinite;
     -moz-animation: Vibrations 20s ease infinite;
     animation: Vibrations 20s ease infinite;

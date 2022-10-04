@@ -5,4 +5,29 @@
     font-size: 16.5px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+    overflow: scroll;
+    height: 75vh;
 }
+
+/* https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/ */
+
+.about-images {
+    column-count: 2;
+    column-gap: 10px;
+    margin: 2rem 0;
+}
+
+.about-images figure {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+  
+.about-images figure > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+    max-width: 100%;
+    border-radius: 10px;
+  }

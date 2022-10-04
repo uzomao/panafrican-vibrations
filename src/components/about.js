@@ -1,6 +1,17 @@
 import React from 'react'
 import '../styles/about.css'
 
+import image1 from '../images/gallery/image1.JPG'
+import image2 from '../images/gallery/image2.JPG'
+import image3 from '../images/gallery/image3.JPG'
+import image4 from '../images/gallery/image4.JPG'
+import image5 from '../images/gallery/image5.JPG'
+import image6 from '../images/gallery/image6.JPG'
+import image7 from '../images/gallery/image7.JPG'
+
+const images = [image1,image2,image3,image4,image5,image6,image7]
+
+
 const About = () => {
   return (
     <div className="about-modal">
@@ -22,11 +33,19 @@ const About = () => {
             thanks for being the most incredible hosts.
         </p>
 
+        <div className='about-images'>
+            {
+                images.map((image) => <figure><img src={image} 
+                    alt="scene from Prince Claus Fund Mobile Lab Week at Red Clay Studio, Tamale, Ghana" 
+                /></figure>)
+            }
+        </div>
+
         <p>
             Let’s keep vibrating highly <span role="img" aria-label="star emoji">✨</span>
         </p>
 
-        <p style={{marginTop: '2rem', color: '#00f001'}}>
+        <p style={{marginTop: '2rem', fontStyle: 'italic'}}>
             - Uzoma, 04/10/2022
         </p>
     </div>
