@@ -40,8 +40,6 @@ const Home = ({ showAboutModal }) => {
 
   useEffect(() => {
     imageMapResize();
-
-    console.log(alreadySelectedNames)
     
     if(alreadySelectedNames && !showAboutModal){
       for(let awardeeName of alreadySelectedNames){
