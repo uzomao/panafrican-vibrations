@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/home';
+import SEO from './components/seo'
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
         </div>
       </header>
       <Home showAboutModal={showAboutModal} />
+      <SEO />
     </>
   )
 }
