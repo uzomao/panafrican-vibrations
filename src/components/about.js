@@ -11,7 +11,7 @@ const About = () => {
             their practice into community with mentors with more established practices to exchange ideas and learn from one another. 
             This in itself was a very enriching experience but one of the things I enjoyed the most about the trip was the positive 
             energy that the group built in the short space of a week. Reflecting on this on the flight home I got the inspiration 
-            to create Pan-African Vibrations as an ode to a transformative week and testament to what is possible when we stay 
+            to create Pan-African Vibrations as an ode to a transformative week and a testament to what is possible when we stay 
             in the energy of our dreams.
         </p>
 
