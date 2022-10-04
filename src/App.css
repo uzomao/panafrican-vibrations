@@ -17,17 +17,40 @@ body {
     padding: 0 2.5rem;
 }
 
+.app-header .header-item {
+    width: 33.3%;
+}
+
+.app-header .header-item:first-child {
+    text-align: left;
+}
+
+.app-header .header-item:last-child > * {
+    text-align: right;
+}
+
 .app-header h3 {
     margin: 0;
 }
 
-.app-header p {
+.app-header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.app-header-right p, a {
     color: #fff;
     cursor: pointer;
     text-decoration: underline;
     font-family: 'Space Mono', 'Courier New', Courier, monospace;
+    font-size: 17px;
 }
 
-.app-header p:hover {
+.app-header p:hover, .app-header a:hover {
     color: #00f001;
+}
+
+.app-header p {
+    margin-right: 10px;
 }
