@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -26,12 +26,23 @@ const markers = [
 
 const MapChart = ({ awardeeSelected }) => {
 
+  const [mapScale, setMapScale] = useState(675)
+
   useEffect(() => {
-    // Modify map viewbox dynamically
-    document.getElementsByClassName('rsm-svg')[0].setAttribute("viewBox", "0 0 1000 1000");
+    let viewBox;
+    
+    // Modify map viewbox dynamically for mobile and desktop
+    if(window && window.innerWidth < 768){
+      setMapScale(750)
+      viewBox = "100 0 800 1200"
+    } else {
+      viewBox = "0 0 1000 1000"
+    }
+    document.getElementsByClassName('rsm-svg')[0].setAttribute("viewBox", viewBox);
 
   }, [])
   
+  console.log(mapScale)
 
   return (
     <ComposableMap
@@ -39,7 +50,7 @@ const MapChart = ({ awardeeSelected }) => {
       projectionConfig={{
         rotate: [45, 2.5, 7],
         center: [50, 22.5],
-        scale: 675
+        scale: mapScale
       }}
     >
       <Geographies geography={geoUrl}>

@@ -147,6 +147,15 @@
 
     .home {
         flex-direction: column;
+        height: unset;
+    }
+
+    .home-image {
+        flex-basis: 25%;
+    }
+
+    .home-map {
+        flex-basis: 75%;
     }
 
     .home-image-image, .home-description-modal {
@@ -161,7 +170,6 @@
 
     .home-image {
         border-right: unset;
-        border-bottom: 1px solid #ccd5d0;
     }
 
     .home-map .vibe-count {
@@ -170,7 +178,7 @@
         text-align: center;
         width: 100%;
         font-size: 16px;
-        margin-top: 2.5rem;
+        margin-top: 1rem;
         background: none;
         box-shadow: none;
     }
