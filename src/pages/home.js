@@ -31,15 +31,28 @@ const Home = ({ showAboutModal }) => {
 
   const [vibeCount, setVibeCount] = useState(0)
 
-  useEffect(() => {
-    imageMapResize();
-  }, [])
-
   const [alreadySelectedNames, setAlreadySelectedNames] = useState([])
 
+  const showMarker = (markerId) => {
+    document.getElementById(`marker-${markerId}`).style.display = 'block';
+    document.getElementById(`marker-text-${markerId}`).style.display = 'block';
+  }
+
+  useEffect(() => {
+    imageMapResize();
+
+    console.log(alreadySelectedNames)
+    
+    if(alreadySelectedNames && !showAboutModal){
+      for(let awardeeName of alreadySelectedNames){
+        showMarker(awardeeName)
+      }
+    }
+  })
+
+
   const awardeeSelected = (awardeeName) => {
-    document.getElementById(`marker-${awardeeName}`).style.display = 'block';
-    document.getElementById(`marker-text-${awardeeName}`).style.display = 'block';
+    showMarker(awardeeName)
     
     setCurrentAwardee(awardeesNameMap[awardeeName])
 
@@ -93,7 +106,7 @@ const Home = ({ showAboutModal }) => {
             <AwardeesMap awardeeSelected={awardeeSelected} />
           </>
         :
-        <About />
+          <About />
       }
       </div>
   )
