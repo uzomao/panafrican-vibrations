@@ -48,8 +48,26 @@ const Home = ({ showAboutModal }) => {
     }
   })
 
+  // add a new class to the home image section to account for the description modal
+  const _setDescriptionModal = () => {
+    
+    const descriptionModalClassName = 'home-description-modal-active'
+    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
+      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
+    }
+
+  }
 
   const awardeeSelected = (awardeeName) => {
+
+    if(awardeeName === 'Gloria'){
+      setCurrentAwardee({name: 'Gloria', text: 'This is Gloria, we met her in the hotel lobby. Her vibes were dope'})
+
+      _setDescriptionModal()
+
+      return
+    }
+
     showMarker(awardeeName)
     
     setCurrentAwardee(awardeesNameMap[awardeeName])
@@ -59,11 +77,8 @@ const Home = ({ showAboutModal }) => {
       setAlreadySelectedNames([...alreadySelectedNames, awardeeName])
     }
 
-    // add a new class to the home image section to account for the description modal
-    const descriptionModalClassName = 'home-description-modal-active'
-    if(document.getElementsByClassName(descriptionModalClassName).length === 0){
-      document.getElementsByClassName('home-image')[0].className += ` ${descriptionModalClassName}`
-    }
+    _setDescriptionModal()
+    
   }
 
   return (
@@ -87,7 +102,7 @@ const Home = ({ showAboutModal }) => {
                         <h3><span role="img" aria-label='artist palette'>🎨</span> {currentAwardee.practice}</h3> {/* Research everyone's practice! */}
                         <h3><span role="img" aria-label='globe showing europe-africa'>🌍</span> {currentAwardee.city}</h3>
                         <p>{currentAwardee.text}</p>
-                        <a href={currentAwardee.pcfLink} target="_blank" rel="noopener noreferrer">Link to Prince Claus profile</a>
+                        {currentAwardee.pcfLink && <a href={currentAwardee.pcfLink} target="_blank" rel="noopener noreferrer">Link to Prince Claus profile</a>}
                         {currentAwardee.portfolio && <a href={currentAwardee.portfolio} target="_blank" rel="noopener noreferrer">Link to artist's portfolio</a>}
                         {currentAwardee.instagram && <a href={currentAwardee.instagram} target="_blank" rel="noopener noreferrer">Link to artist's Insta</a>}
                       </div>
