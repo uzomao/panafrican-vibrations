@@ -5,22 +5,20 @@ const SEO = () => {
   return (
     <SuperSEO
         title="Pan-African Vibrations"
-        description="A PCF Mobile Lab Week vibes diary"
+        description="My PCF Mobile Lab Week vibes diary"
         lang="en"
         openGraph={{
             ogImage: {
-            ogImage: "../images/logo.jpg",
-            ogImageAlt: "a neon green map of africa",
-            ogImageWidth: 1200,
-            ogImageHeight: 630,
-            ogImageType: "image/jpeg",
+                ogImage: "../images/awardees.jpg",
+                ogImageAlt: "a neon green map of africa",
+                ogImageType: "image/jpeg",
             },
         }}
         twitter={{
             twitterSummaryCard: {
-            summaryCardImage: "../images/logo.jpg",
-            summaryCardImageAlt: "a neon green map of africa",
-            summaryCardSiteUsername: "Pan-African Vibrations",
+                summaryCardImage: "../images/awardees.jpg",
+                summaryCardImageAlt: "a neon green map of africa",
+                summaryCardSiteUsername: "Pan-African Vibrations",
             },
         }}
         />
