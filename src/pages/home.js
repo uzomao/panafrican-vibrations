@@ -99,7 +99,7 @@ const Home = ({ showAboutModal }) => {
                   Vibe count: {`${vibeCount}/9`}
                 </p>
                 <MapChart awardeeSelected={awardeeSelected} />
-                { vibeCount === 2 &&
+                { vibeCount === 9 &&
                   <div id="vibe-count-complete">
                     <p>Vibe count complete</p>
                     <h1>
