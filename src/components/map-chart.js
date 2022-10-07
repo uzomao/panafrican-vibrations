@@ -41,8 +41,6 @@ const MapChart = ({ awardeeSelected }) => {
     document.getElementsByClassName('rsm-svg')[0].setAttribute("viewBox", viewBox);
 
   }, [])
-  
-  console.log(mapScale)
 
   return (
     <ComposableMap

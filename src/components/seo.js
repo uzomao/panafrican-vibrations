@@ -9,14 +9,14 @@ const SEO = () => {
         lang="en"
         openGraph={{
             ogImage: {
-                ogImage: "../images/awardees.jpg",
+                ogImage: "../images/logo.jpg",
                 ogImageAlt: "a neon green map of africa",
                 ogImageType: "image/jpeg",
             },
         }}
         twitter={{
             twitterSummaryCard: {
-                summaryCardImage: "../images/awardees.jpg",
+                summaryCardImage: "../images/logo.jpg",
                 summaryCardImageAlt: "a neon green map of africa",
                 summaryCardSiteUsername: "Pan-African Vibrations",
             },

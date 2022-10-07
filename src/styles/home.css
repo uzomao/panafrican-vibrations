@@ -116,6 +116,25 @@
     animation: Vibrations 20s ease infinite;
 }
 
+#vibe-count-complete {
+    color: #fff;
+    text-align: center;
+    animation: vibe-count-complete 7s ease forwards;
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(144deg, #e84393, #4834d4);
+    padding: 1rem;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    opacity: 0.9
+}
+
+#vibe-count-complete h1 {
+    font-family: 'Bungee', sans-serif;
+}
+
+
+
 /* CSS Gradient */
 
 .home {
@@ -141,6 +160,22 @@
     0%{background-position:15% 0%}
     50%{background-position:86% 100%}
     100%{background-position:15% 0%}
+}
+
+@-webkit-keyframes vibe-count-complete {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
+}
+@-moz-keyframes vibe-count-complete {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
+}
+@keyframes vibe-count-complete {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
 }
 
 @media only screen and (max-width: 768px) {

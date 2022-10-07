@@ -99,6 +99,16 @@ const Home = ({ showAboutModal }) => {
                   Vibe count: {`${vibeCount}/9`}
                 </p>
                 <MapChart awardeeSelected={awardeeSelected} />
+                { vibeCount === 2 &&
+                  <div id="vibe-count-complete">
+                    <p>Vibe count complete</p>
+                    <h1>
+                      <span role="img" alt="party popper emoji">🎉 </span>
+                      Believe in your vibe
+                      <span role="img" alt="party popper emoji"> 🎉</span>
+                    </h1>
+                  </div>
+                }
             </div>
             {/* Image map for awardees image */}
             <AwardeesMap awardeeSelected={awardeeSelected} />
